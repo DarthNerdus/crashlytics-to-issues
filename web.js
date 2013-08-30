@@ -23,7 +23,7 @@ app.post('/', express.bodyParser(), function(req, res) {
     var issue_data = JSON.stringify({
       title: req.body.payload.title + "(Crashlytics #" + req.body.payload.display_id + ")",
       body: "Crash in `" + req.body.payload.method + "`, " + req.body.payload.crashes_count + " times.\n\n" + req.body.payload.url,
-      labels: ["Crash"]
+      labels: ["crash"]
     });
 
     // Create an issue in Github
