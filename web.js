@@ -22,7 +22,7 @@ app.post('/', express.bodyParser(), function(req, res) {
     // Build the issue payload
     var issue_data = JSON.stringify({
       title: req.body.payload.title + " (Crashlytics #" + req.body.payload.display_id + ")",
-      body: "Crash in `" + req.body.payload.method + "`, " + req.body.payload.crashes_count + " times.\n\n" + req.body.payload.url,
+      body: "**Location:** " + reg.body.payload.title + "\n**Method**: `" + req.body.payload.method + "`\n**Impact Level**: " + req.body.payload.impact_level + "\n**Occurences**: " + req.body.payload.crashes_count + "\n**Impact Devices**: " + req.body.payload.impacted_devices_count + "\n\n[Crashlytics Report](" + req.body.payload.url + ")",
       labels: ["crash"]
     });
 
